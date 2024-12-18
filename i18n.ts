@@ -23,19 +23,6 @@ console.log(error)
 
 
 
-
-    // fetch("https://storage.googleapis.com/jiffybook_public_files/en.json").then(async response => {
-    //     try {
-    //      const data = await response.json()
-    //      console.log('response data?', data)
-    //    } catch(error) {
-    //      console.log('Error happened here!')
-    //      console.error(error)
-    //    }
-    //   })
-
-
-
 };
 
   

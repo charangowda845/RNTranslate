@@ -3,12 +3,29 @@ import { MMKV } from 'react-native-mmkv';
 // Initialize MMKV
 export const storage = new MMKV();
 
-// Function to save locale
+/**
+ * Save the locale to persistent storage
+ * @param {string} locale - Language code to save
+ */
 export const saveLocale = (locale: string): void => {
-  storage.set('locale', locale);
+  try {
+    storage.set('locale', locale);
+    console.log(`Locale saved: ${locale}`);
+  } catch (error) {
+    console.error('Failed to save locale:', error);
+  }
 };
 
-// Function to get locale
+/**
+ * Get the saved locale from persistent storage
+ * @returns {string} - Saved language code or default 'en'
+ */
 export const getLocale = (): string => {
-  return storage.getString('locale') || 'en'; // Default to 'en'
+  try {
+    return storage.getString('locale') || 'en'; // Default to 'en' if no locale is saved
+  } catch (error) {
+    console.error('Failed to get locale:', error);
+    return 'en';
+  }
 };
+
